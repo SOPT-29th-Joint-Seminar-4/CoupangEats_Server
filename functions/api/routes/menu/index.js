@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('', require('./menuGET'));
+router.get('/', require('./menuListGET'));
 
 module.exports = router;

@@ -8,6 +8,7 @@ module.exports = {
 
   // 가게
   READ_SHOP_SUCCESS: '가게 조회 성공',
+  UPDATE_SHOP_LIKE_SUCCESS: '가게 즐겨찾기 수정 성공',
 
   // 배너
   READ_BANNER_SUCCESS: '배너 조회 성공',
