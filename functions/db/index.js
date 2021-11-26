@@ -1,4 +1,3 @@
 module.exports = {
-  menuDB : require('./menu'),
-  shopDB : require('./shop'),
+  menuDB : require('./menu')
 };
