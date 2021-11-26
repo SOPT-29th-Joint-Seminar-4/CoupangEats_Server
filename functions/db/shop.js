@@ -12,4 +12,26 @@ const getShop = async (client) => {
   return convertSnakeToCamel.keysToCamel(rows);
 };
 
-module.exports = { getShop };
+const updateShop = async (client, shopId) => {
+  const { rows: existingRows } = await client.query(
+    `
+    SELECT * FROM shop s
+    WHERE id = $1
+       AND is_deleted = FALSE
+    `,
+    [shopId],
+  );
+
+  const { rows } = await client.query(
+    `
+    UPDATE shop s
+    SET is_like = NOT is_like
+    WHERE id = $1
+    RETURNING * 
+    `,
+    [shopId],
+  );
+  return convertSnakeToCamel.keysToCamel(rows[0]);
+};
+
+module.exports = { getShop, updateShop };
