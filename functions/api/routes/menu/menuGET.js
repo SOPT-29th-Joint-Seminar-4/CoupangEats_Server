@@ -12,6 +12,8 @@ module.exports = async (req, res) => {
     client = await db.connect(req);
 
     const menus = await menuDB.getMenu(client);
+    if (menus.length == 0) res.status(sc.NO_CONTENT).send(success(sc.NO_CONTENT, rm.READ_MENU_SUCCESS, menus));
+
     res.status(sc.OK).send(success(sc.OK, rm.READ_MENU_SUCCESS, menus));
   } catch (error) {
     functions.logger.error(`[ERROR] [${req.method.toUpperCase()}] ${req.originalUrl}`, `[CONTENT] ${error}`);
