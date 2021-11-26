@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
     const shopList = await shopDB.getShop(client);
     
     // 성공적으로 users를 가져왔다면, response를 보내줍니다.
-    res.status(statusCode.OK).send(util.success(statusCode.OK, responseMessage.READ_ALL_USERS_SUCCESS, shopList));
+    res.status(statusCode.OK).send(util.success(statusCode.OK, responseMessage.READ_SHOP_SUCCESS, shopList));
     
   } catch (error) {
     functions.logger.error(`[ERROR] [${req.method.toUpperCase()}] ${req.originalUrl}`, `[CONTENT] ${error}`);
