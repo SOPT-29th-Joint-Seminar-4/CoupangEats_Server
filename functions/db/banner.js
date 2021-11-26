@@ -9,7 +9,7 @@ const getBanner = async (client, osId) => {
     `,
     [osId],
   );
-  return convertSnakeToCamel.keysToCamel(rows);
+  return convertSnakeToCamel.keysToCamel(rows[0]);
 };
 
 module.exports = { getBanner };
