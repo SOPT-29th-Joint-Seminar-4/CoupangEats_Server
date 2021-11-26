@@ -13,15 +13,6 @@ const getShop = async (client) => {
 };
 
 const updateShop = async (client, shopId) => {
-  const { rows: existingRows } = await client.query(
-    `
-    SELECT * FROM shop s
-    WHERE id = $1
-       AND is_deleted = FALSE
-    `,
-    [shopId],
-  );
-
   const { rows } = await client.query(
     `
     UPDATE shop s
